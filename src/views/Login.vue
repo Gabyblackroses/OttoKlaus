@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-img src='../assets/fondo.jpg'>
+    <v-img src='../assets/3164373.jpg'>
       <v-card width="400px" class="mx-auto my-5">
         <v-card-title class="pb-0">
           <h1 class="mx-auto mb-5">Otto Kraus</h1>
