@@ -1,6 +1,6 @@
 <template>
   <div>
-    <toys-form :showForm="showForm" @close-form="showForm = false" @save-form="showForm= false"></toys-form>
+    <toys-form :showForm="showForm" @close-form="showForm = false" @save-form="showForm = false"></toys-form>
     <v-container>
       <v-row>
         <h1>Juguetes</h1>
@@ -26,7 +26,7 @@
             <td>{{ toy.data.name }}</td>
             <td>{{ toy.data.stock }}</td>
             <td>{{ toy.data.price }}</td>
-            <td><v-btn text color="yellow accent-3">Editar</v-btn></td>
+            <td><v-btn text color="yellow accent-3" @click=modifyToy(toy)>Editar</v-btn></td>
             <td><v-btn text color="red accent-3" @click="removeToy(toy.id)">Eliminar</v-btn></td>   
           </tr>
         </tbody>
@@ -37,7 +37,7 @@
 
 <script>
 import ToysForm from '@/components/ToysForm'
-import { mapState, mapActions } from "vuex";
+import { mapState, mapActions } from 'vuex';
 export default {
   name: "Toy",
   components:{
@@ -49,14 +49,18 @@ export default {
     }
   },
   computed: {
-    ...mapState(["toys"]),
+    ...mapState(["toys"])
   },
   methods: {
-    ...mapActions(["getToys", "deleteToy"]),
+    ...mapActions(["getToys", "deleteToy", "editToy"]),
     removeToy(toyId){
       if (confirm('Estás seguro??')){
         this.deleteToy(toyId)
       }
+    },
+    modifyToy(toy){
+      this.editToy(toy)
+      this.showForm = true
     }
   },
   created() {

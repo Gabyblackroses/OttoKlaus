@@ -7,7 +7,7 @@
     >
       <div class="d-flex align-center">
         <v-img
-          alt="Vuetify Logo"
+          alt="Otto logo"
           class="shrink mr-2"
           contain
           src="./assets/ottokraus.png"
@@ -17,7 +17,7 @@
       </div>
       <div class="d-flex align-center">
         <v-img
-          alt="Vuetify Logo"
+          alt="Goliat"
           class="shrink mr-2"
           contain
           src="./assets/Goliat.png"
@@ -45,7 +45,6 @@ import firebase from 'firebase'
 import { mapState, mapActions } from 'vuex'
 export default {
   name: 'App',
-
   data: () => ({
   }),
   computed:{
@@ -60,7 +59,6 @@ export default {
       })
     }
   },
-
   created(){
     this.setCurrentUser(firebase.auth().currentUser)
   }

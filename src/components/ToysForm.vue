@@ -24,8 +24,8 @@
                 <v-text-field label="Stock" v-model="toy.data.stock" required ></v-text-field>
               </v-col>
               <v-col cols="12" sm="6" md="6">
-                <v-text-field label="Precio" prefix="$" v-model="toy.price.code" required ></v-text-field>
-              </v-col>  
+                <v-text-field label="Precio" prefix="$" v-model="toy.data.price" required ></v-text-field>
+              </v-col>
             </v-row>
           </v-container>
         </v-card-text>
@@ -34,14 +34,15 @@
           <v-btn
             color="green darken-1"
             text
-            @click="$emit('close-form')"
+            @click.prevent="closeForm"
           >
             Close
           </v-btn>
           <v-btn
+            v-text="toy.id ? 'Actualizar' : 'Crear'"
             color="green darken-1"
             text
-            @click="submitForm"
+            @click.prevent="submitForm"
           >
             Save
           </v-btn>
@@ -52,7 +53,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 export default {
   props:{
     showForm:{
@@ -77,11 +78,34 @@ export default {
     ...mapActions(["createToy", "updateToy"]),
     submitForm(){
       if(!confirm('Estás seguro?')){ return }
+
       if(this.toy.id){
         this.updateToy(this.toy)
       }else{
-        this.createToy(this.toy)
+        this.createToy(this.toy.data)
       }
+      this.$emit('close-form')
+      this.resetToy()
+    },
+    closeForm(){
+      this.$emit('close-form')
+      this.resetToy()
+    },
+    resetToy(){
+      this.toy.id = null,
+      this.toy.data.name = null,
+      this.toy.data.code = null,
+      this.toy.data.stock = 0,
+      this.toy.data.price = 0
+    }
+  },
+  computed:{
+    ...mapState(["currentToy"])
+  },
+  watch:{
+    currentToy: function(){
+      this.toy = JSON.parse(JSON.stringify(this.currentToy)
+      )
     }
   }
 }

@@ -61,7 +61,7 @@ export default {
           this.$router.push("/");
         })
         .catch(() => {
-          alert("no no no");
+          alert("Error en tu correo o contraseña");
         });
     },
   },
