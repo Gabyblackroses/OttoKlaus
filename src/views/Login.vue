@@ -9,7 +9,7 @@
           contain
           src="../assets/otto.jpg"
           transition="scale-transition"
-          width="160"
+          width="180"
         /></h1>
         </v-card-title>
         <v-card-text>
