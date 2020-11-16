@@ -2,7 +2,7 @@
   <v-app>
     <v-app-bar
       app
-      color="primary"
+      color="indigo"
       dark
     >
       <div class="d-flex align-center">
@@ -10,18 +10,19 @@
           alt="Vuetify Logo"
           class="shrink mr-2"
           contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
+          src="./assets/ottokraus.png"
           transition="scale-transition"
-          width="40"
+          width="90"
         />
-
+      </div>
+      <div class="d-flex align-center">
         <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
+          alt="Vuetify Logo"
+          class="shrink mr-2"
           contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
+          src="./assets/Goliat.png"
+          transition="scale-transition"
+          width="60"
         />
       </div>
 

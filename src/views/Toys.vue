@@ -1,6 +1,14 @@
 <template>
-  <v-simple-table>
-    <template>
+  <div>
+    <toys-form :showForm="showForm" @close-form="showForm = false" @save-form="showForm= false"></toys-form>
+    <v-container>
+      <v-row>
+        <h1>Juguetes</h1>
+        <v-spacer></v-spacer>
+        <v-btn dark color="green accent-2" @click.prevent="showForm=true">Nuevo</v-btn>
+      </v-row>
+    </v-container>
+    <v-simple-table>
       <thead>
         <tr>
           <th class="text-left">
@@ -18,27 +26,38 @@
         </tr>
       </thead>
       <tbody>
-        <tr
-          v-for="toy in toys" :key="toy.name">
-        <td>{{ toy.code }}</td>
-        <td>{{ toy.name }}</td>
-        <td>{{ toy.stock }}</td>
-        <td>{{ toy.price }}</td>
+        <tr v-for="toy in toys" :key="toy.id">
+          <td>{{ toy.data.code }}</td>
+          <td>{{ toy.data.name }}</td>
+          <td>{{ toy.data.stock }}</td>
+          <td>{{ toy.data.price }}</td>
         </tr>
       </tbody>
-    </template>
-  </v-simple-table>
+    </v-simple-table>
+  </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import ToysForm from '@/components/ToysForm'
+import { mapState, mapActions } from "vuex";
 export default {
-  name: 'Home',
-  computed:{
-    ...mapState(["toys"])
+  name: "Toy",
+  components:{
+    ToysForm
   },
-  created(){
-    this.getToys()
-  }
-}
+  data(){
+    return{
+      showForm: false
+    }
+  },
+  computed: {
+    ...mapState(["toys"]),
+  },
+  methods: {
+    ...mapActions(["getToys"]),
+  },
+  created() {
+    this.getToys();
+  },
+};
 </script>

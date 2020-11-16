@@ -3,16 +3,25 @@
     <v-img src='../assets/3164373.jpg'>
       <v-card width="400px" class="mx-auto my-5">
         <v-card-title class="pb-0">
-          <h1 class="mx-auto mb-5">Otto Kraus</h1>
+          <h1 class="mx-auto mb-5"><v-img
+          alt="Otto Logo"
+          class="shrink mr-2"
+          contain
+          src="../assets/otto.jpg"
+          transition="scale-transition"
+          width="160"
+        /></h1>
         </v-card-title>
         <v-card-text>
           <v-form>
             <v-text-field
+              color="indigo"
               label="Usuario"
               prepend-icon="mdi-account-circle"
               v-model="user"
             />
             <v-text-field
+              color="indigo"
               label="Contraseña"
               :type="showPassword ? 'text' : 'password'"
               prepend-icon="mdi-lock"
@@ -25,7 +34,7 @@
         <v-divider></v-divider>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="info" @click="login">Login</v-btn>
+          <v-btn dark color="indigo" @click="login">Login</v-btn>
         </v-card-actions>
       </v-card>
     </v-img>
