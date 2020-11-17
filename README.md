@@ -1,4 +1,6 @@
-# ottoklaus
+# OttoKlaus
+
+Proyecto CRUD con Vue, Vuex, Router y Firebase. Para ver el proyecto en producción siga el siguiente [enlace ] (https://prueba1-37063.web.app/)
 
 ## Project setup
 ```
@@ -20,5 +22,10 @@ npm run build
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Imágenes referenciales
+
+Interfáz de inicio de sesión:
+![alt text](imagenes/Front.jpg "Formulario de login")
+
+Interfáz de inicio de sesión:
+![alt text](imagenes/Formulario.jpg "Formulario de Juguetes")
