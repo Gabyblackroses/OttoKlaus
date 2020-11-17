@@ -25,9 +25,9 @@ npm run lint
 ### Imágenes referenciales
 
 Interfáz de inicio de sesión:
-![alt text](imagenes/Front.png "Formulario de login")
+![alt text](Imagenes/Front.png "Formulario de login")
 
 #
 
 Interfáz de Ingreso:
-![alt text](imagenes/Formulario.png "Formulario de Juguetes")
+![alt text](Imagenes/Formulario.png "Formulario de Juguetes")
